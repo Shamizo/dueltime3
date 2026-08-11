@@ -1,0 +1,104 @@
+Message:
+  prefix: "&7&l[&bDuelTime&7&l] "
+  default-language: "简体中文"
+Database:
+  url: jdbc:mysql://localhost:3306/test?useSSL=false
+  username: root
+  password: 1234
+  type:
+    arena: "sqlite"
+    location: "sqlite"
+    shop: "sqlite"
+    record: "sqlite"
+    player-data: "sqlite"
+    blacklist: "sqlite"
+Arena:
+  classic:
+    reward:
+      win-exp: 30
+      win-point: 1
+      lose-exp-rate: 0.3
+    auto-respawn:
+      enabled: true
+      code: "SPIGOT"
+    delayed-back:
+      enabled: true
+      time: 5
+Record:
+  show:
+    enabled: true
+    cooldown: 10
+  print:
+    enabled: true
+    cost: 1
+Ranking:
+  auto-refresh-interval: 30
+  hologram:
+    enabled: true
+    size: 10
+    plugin: "HolographicDisplays"
+Level:
+  tier:
+    showed-in-chat-box:
+      enabled: true
+      format: "&f[&r%v&f]"
+    default:
+      title: "&7无段位"
+      exp-for-level-up: 10
+    custom:
+      t1:
+        level: 1
+        title: "&2青铜I"
+        exp-for-level-up: 20
+      t2:
+        level: 3
+        title: "&2青铜II"
+        exp-for-level-up: 25
+      t3:
+        level: 5
+        title: "&2青铜III"
+        exp-for-level-up: 30
+      t4:
+        level: 10
+        title: "&3黑铁I"
+        exp-for-level-up: 35
+      t5:
+        level: 15
+        title: "&3黑铁II"
+        exp-for-level-up: 40
+      t6:
+        level: 20
+        title: "&3黑铁III"
+        exp-for-level-up: 50
+      t7:
+        level: 25
+        title: "&e黄金I"
+        exp-for-level-up: 60
+      t8:
+        level: 30
+        title: "&e黄金II"
+        exp-for-level-up: 70
+      t9:
+        level: 35
+        title: "&e黄金III"
+        exp-for-level-up: 80
+      t10:
+        level: 40
+        title: "&b钻石I"
+        exp-for-level-up: 90
+      t11:
+        level: 45
+        title: "&b钻石II"
+        exp-for-level-up: 100
+      t12:
+        level: 50
+        title: "&b钻石III"
+        exp-for-level-up: 115
+      t13:
+        level: 55
+        title: "&b钻石IV"
+        exp-for-level-up: 130
+      t14:
+        level: 60
+        title: "&b钻石V"
+        exp-for-level-up: 150

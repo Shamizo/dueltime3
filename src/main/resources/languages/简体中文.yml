@@ -1,0 +1,705 @@
+LanguageName: "&c简体中文(系统预置)"
+String:
+  none: "无"
+  true: "是"
+  false: "否"
+  list: "{line}行列表：{brief_content}"
+  win: "&a胜利"
+  lose: "&7失败"
+  draw: "&6平局"
+  games: "场"
+  seconds: "秒"
+  no-rank: "&7无排名"
+  command-executor:
+    player: "玩家"
+    op: "管理员"
+    console: "后台"
+Exception:
+  arena:
+    initialize-fail-invalid-arena-type: "竞技场 {arena_name}(ID:{arena_id}) 初始化失败，不存在ID为 '{arena_id}' 的竞技场类型，请检查是否缺少相关附属插件"
+Level:
+  level-up-message: "&a恭喜你的DT等级升到了 &b{level} &a级"
+  tier-up-message: "&b恭喜你的DT段位升到了 &f{tier}"
+  tier-up-broadcast: "&a[恭喜] &b玩家 &3{player} &b的段位升到了 &f{tier}"
+  tier-down-message: "&c你的DT段位掉到了 &f{tier}"
+Arena:
+  wait:
+    start: "&7已加入竞技场 &b{arena}&7 的等待队列..."
+    switch: "&7已切换至竞技场 &b{arena}&7 的等待队列..."
+    stop: "&7取消等待竞技场：&b{arena}"
+  protection:
+    walk-in-while-available: "&c&l[!]&c无赛事时，你不能进入竞技场 &e{name}&c 的场地"
+    walk-in-while-in-progress: "&c&l[!]&c竞技场 &e{name}&c 正在比赛，请不要进入"
+    teleport-to-while-available: "&c&l[!]&c无赛事时，你不能传送到竞技场 &e{name}&c 的场地"
+    teleport-to-while-in-progress: "&c&l[!]&c竞技场 &e{name}&c 正在比赛，请不要传送过去"
+    attack-gamer: "&c&l[!]&c请不要干扰竞技场 &e{name}&c 上的参与玩家"
+    break: "&c&l[!]&c你不能破坏竞技场 &e{name}&c 内的方块"
+    place: "&c&l[!]&c你不能在竞技场 &e{name}&c 内放置方块"
+    place-over: "&c&l[!]&c你不能在竞技场 &e{name}&c 上空放置方块"
+    interact: "&c&l[!]&c你不能与竞技场 &e{name}&c 内的方块交互"
+    pour-liquid: "&c&l[!]&c你不能在竞技场 &e{name}&c 内倾倒液体"
+    get-liquid: "&c&l[!]&c你不能捞取竞技场 &e{name}&c 内的液体"
+  type:
+    classic:
+      name: "经典"
+      start:
+        title: "&a&l比赛开始"
+        subtitle: "&f亮剑吧！"
+      end:
+        result-stopped: "&c&l[!]&c本场比赛被系统或管理员强制结束！将不会产生任何记录"
+        result-stopped-with-reason: "&c&l[!]&c本场比赛被系统或管理员强制结束！将不会产生任何记录。强制结束原因：&f{reason}"
+        result-win: "&2&l[!]&a你取得了本场经典模式下比赛的胜利"
+        result-lose: "&6&l[!]&c你在本场经典模式下的比赛中落败"
+        result-draw: "&b&l[!]&3本场经典模式下的比赛以平局结束"
+        notify-info:
+          - "&7&m───&f&l&m────────────────────────&7&m───"
+          - "    &b场地: &f{arena}"
+          - "    &b对手: &f{player}&7(&f{level_display_name}&7)"
+          - "    &b历时: &3{time}秒"
+          - "    &b经验: &f{exp_change}"
+          - "    &b更多数据：&7[clickable]more_data::&7(鼠标悬停此处查看)::&b总计伤害:&3{total_damage}||&b最大伤害:&3{max_damage}||&b平均伤害:&3{average_damage}[clickable]"
+          - "&7&m───&f&l&m────────────────────────&7&m───"
+        broadcast: "&3[战报] &b玩家 &d{winner} &b在经典模式竞技场 &e{arena}&b 上以 &a{time} &b秒的时间击败了对手 &e{loser} &b！"
+        broadcast-draw: "&3[战报] 玩家 &d{player1} &b和 &d{player2} &b在经典模式竞技场 &e{arena}&b 上打成平手！历时 &a{time} &b秒"
+      damage-during-countdown: "&7比赛还未还没正式开始，不可发起攻击"
+      use-command-in-game: "&c比赛过程中禁止使用这个指令"
+      quit-inform-opponent: "&d你的对手主动退出了比赛！"
+      leave-server-inform-opponent: "&d你的对手离开了服务器！"
+      win-title: "&a&l赢"
+      win-subtitle: "&f恭喜你赢得了这场比赛！"
+      delayed-back:
+        gamer-title: "&b&l{countdown}"
+        gamer-subtitle: "&7即将传送离开竞技场..."
+        spectator-title: "&b&l{countdown}"
+        spectator-subtitle: "&7即将传送离开观众席..."
+      function:
+        time-limit:
+          name: "比赛限时"
+          description: "为比赛设置限定时间(单位为秒)，若超出限时则根据预设方案判定输赢或平局，需要传入整数型数据"
+          bossbar-title: "&f比赛剩余 &3{time} &f秒"
+          game-title: "&b&l{time}"
+          game-subtitle: "&f比赛即将开始..."
+        countdown:
+          name: "开始前倒计时"
+          description: "为比赛设置开始前倒计时(单位为秒)，需要传入一个整数型数据表示秒数、传入一个布尔值表示是否允许倒计时期间玩家移动"
+        check-inventory-keyword:
+          name: "入场前背包检查(依关键词)"
+        inventory-check-keyword:
+          description: "禁用某些特殊的物品入场，检测背包中是否装有名称或lore中含有某些关键词的物品，如果有则制止开赛"
+          detected-tip: "&c&l[!] &c在你的背包中检测到竞技场 &e{arena_name}&c 所禁用的特殊物品： [clickable]item::&f[{item_name}]&7(点击查看详情)::{item_lore}[clickable]"
+          detected: "&c玩家 &e{player}&c 背包里携带有竞技场 &e{arena_name}&c 所禁用的特殊物品，已通知该玩家相关细节，请再次确保双方都没有携带其他禁用的特殊物品后再重新发起比赛"
+        inventory-check-type:
+          name: "入场前背包检查(依物品种类)"
+          description: "为比赛设置背包携带物品限制，检测背包中是否装有某个特定种类的物品，如果有则制止开赛"
+          detected-tip: "&c&l[!] &c在你的背包中检测到竞技场 &e{arena_name}&c 所禁用的特定种类物品： [clickable]item::&f[{item_name}]&7(点击查看详情)::{item_lore}[clickable]"
+          detected: "&c玩家 &e{player}&c 背包里携带有竞技场 &e{arena_name}&c 所禁用的特定种类物品，已通知该玩家相关细节，请再次确保双方都没有携带其他禁用种类的物品后再重新发起比赛"
+        pre-game-command:
+          name: "赛前执行指令组"
+          description: "为比赛设置玩家赛前刚入场时执行的指令组，支持分别以不同的身份执行"
+        spectate:
+          name: "观战"
+          description: "为比赛设置观战区域，使得玩家可与通过/dueltime spectate指令来观看某个经典模式竞技场的比赛"
+          gamer-health-bossbar: "&f选手 &b{player}&f 的实时血量：&a{health}&2/{max_health}"
+          fail-unavailable: "&c管理员尚未给竞技场 &e{arena} &c开启观战功能"
+          successfully: "&a已将你带到竞技场 &b{arena} &a的观战区域！"
+          stop-successfully: "&a你结束了对竞技场 &b{arena} &a的观看"
+          over:
+            - "&a你观看的比赛结束！详情如下："
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+            - "    &b场地: &f{arena}"
+            - "    &b选手: &3{gamers}"
+            - "    &b获胜: &d{winner}"
+            - "    &b历时: &3{time}秒"
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+          over-in-a-draw:
+            - "&a你观看的比赛以平局结束，详情如下："
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+            - "    &b场地: &f{arena}"
+            - "    &b选手: &3{gamers}"
+            - "    &b历时: &3{time}秒"
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+          over-by-stop: "&c竞技场 &e{arena}&c 上的比赛被管理员强制结束！"
+          spectator-move-out-zone: "&c请不要离开观赛区域，如果要结束观赛，请再次输入观赛指令"
+        ban-entity-spawn:
+          name: "禁止实体生成(包括自然的与人为的)"
+          description: "禁止实体刷出(包括自然的与人为的)，可以设置白名单"
+  earn-point: "&a恭喜你因赢得比赛获得了 &d{point} &a点积分，当前积分：&a{point_now}"
+Record:
+  type:
+    classic:
+      title: "&f经典模式比赛记录"
+      content:
+        arena-name: "&b场地: &f{arena_name}"
+        result: "&b结果: &f{result}"
+        opponent: "&b对手: &e{opponent}"
+        time: "&b用时: &e{time}秒"
+        exp-change: "&b经验变化: &f{exp_change}"
+        total-damage: "&b总计伤害: &e{total_damage}点"
+        max-damage: "&b最大伤害: &e{max_damage}点"
+        average-damage: "&b平均伤害: &e{average_damage}点"
+        date: "&b比赛日期: &e{date}"
+Error:
+  no-permission: "&c你没有权限这么做！"
+  not-player-executor: "&c只有玩家能执行这个指令！"
+  sub-command-not-exists: "&c子指令 &e'{enter}' &c不存在，请检查输入"
+  incorrect-number-format: "&e'{enter}' &c不是数字，请注意格式"
+  incorrect-integer-format: "&e'{enter}' &c不是整数，请注意格式"
+  incorrect-id-format: "&e'{enter}' &c不符合ID命名规范，ID只能包含英文字母、数字和下划线"
+  value-is-not-positive: "&c请输入一个有效的正数！你所输入的 &e'{enter}' &c不符合条件"
+  value-is-negative: "&c请输入一个非负数！你所输入的 &e'{enter}' &c不符合条件"
+  incorrect-boolean-format: "&c请输入字母'T'或'F'，分别表示[是]和[否]'"
+  player-no-found: "&c名为 &e'{player}' &c的玩家可能不存在"
+  incorrect-string-integer-pair-format: "&c请输入 &e文字:数字 &c来表示字符串-整数对，例如 &e'example:3'"
+  incorrect-string-integer-pair-format-integer: "&c分割符 &e':' &c后面应该为一个整数"
+  incorrect-executor-command-pair-format: "&c请输入 &e执行身份:指令内容 &c，例如 &e'console:fly {player}'"
+Progress:
+  repeatedly-join: "&c你已经在过程 &e{progress} &c中了"
+  join-while-handling-other: "&c请先完成或退出过程 &e{progress}"
+  join-successfully: "&a你已进入过程 &b{progress} &a中，请按照后续提示逐步操作。&7(在此期间你可以根据需要输入&f-r&7回退步骤，输入&f-p&7暂停过程，输入&f-c&7继续过程，输入&f-e&7退出过程)"
+  boss-bar-tip: "&a{name}({now}/{total}): {tip}"
+  boss-bar-free-tip:
+    - ""
+    - "&d{progress}&f:"
+    - "&b进度&f:&3{now}/{total} &f[{progress_bar_progress_20_|_a_7}&f]"
+    - "&b提示&f:&f{tip}"
+    - ""
+  boss-bar-message-finish-string: "&a&l大功告成"
+  auto-upload:
+    location-different-world: "&c你所选的位置点必须与上一个位置位于同一个世界！"
+    location-the-same-block: "&c你所选的点不能和上一个点位于同一个方块"
+    location-overlay-with-other-arena: "&c当前选点和上一个选点所构成的三维空间与竞技场 &e{arena} &c的三维空间交叠！请换一个点"
+  finish:
+    message: "&f你完成了过程：§a{progress}"
+    title: "&b✦"
+    subtitle: "&f已完成过程：§a{progress}"
+  operation:
+    reverse:
+      title: "&6↺"
+      subtitle: "&7步骤回退"
+      the-first-step: "&c已经是第一步了，无法回退"
+    pause:
+      title: "&e┃┃"
+      subtitle: "&7暂停步骤操作"
+      has-been-paused: "&c已经处于暂停状态"
+    continue:
+      title: "&a▶"
+      subtitle: "&7恢复步骤操作"
+      has-been-paused: "&c已经处于正常操作状态"
+    exit:
+      successfully: "&7已退出过程：§a{progress}"
+    list:
+      enter:
+        title: "&f[&bT&f]"
+        subtitle: "&7已添加一行，当前列表：&f{brief_content}"
+      incorrect-data-type: "&c现在上传的数据类型不是列表，不能使用这个操作符"
+      empty-data: "&c请先输入一些内容"
+  type:
+    upload-data-for-arena-function: "上传附加功能所需要数据"
+    create-classic-arena:
+      name: "创建经典类型竞技场"
+      step:
+        1:
+          tip: "左键点击方块以选择A点"
+          title: "&a✔"
+          subtitle: "&f成功选择A点 坐标&e{}"
+        2:
+          tip: "左键点击方块以选择B点"
+          title: "&a✔"
+          subtitle: "&f成功选择B点 坐标&e{}"
+        3:
+          tip: "点击屏幕使当前位置作为玩家1的出生点"
+          title: "&a✔"
+          subtitle: "&f成功选择出生点1 坐标&e{}"
+        4:
+          tip: "点击屏幕使当前位置作为玩家2的出生点"
+          title: "&a✔"
+          subtitle: "&f成功选择出生点2 坐标&e{}"
+        5:
+          tip: "输入竞技场ID (只能包含英文、数字、下划线）"
+          title: "&a✔"
+          subtitle: "&f成功设置ID &b{}"
+        6:
+          tip: "输入竞技场名称 (支持颜色符号）"
+          title: "&a✔"
+          subtitle: "&f成功设置名称 &f{}"
+    set-function-time-limit:
+      name: "增添附加功能：时间限制"
+    set-function:
+      time-limit:
+        step:
+          1:
+            tip: "输入时间限制，单位为秒"
+            title: "&a✔"
+            subtitle: "&f成功设置时间限制 &b{}秒"
+      countdown:
+        step:
+          1:
+            tip: "输入倒计时秒数，单位为秒"
+            title: "&a✔"
+            subtitle: "&f成功设置倒计时秒数 &b{}秒"
+          2:
+            tip: "输入T或F分别表示允许或不允许倒计时期间玩家可以在竞技场中移动"
+            title: "&a✔"
+            subtitle: "&f成功设置倒计时期间玩家是否可以移动：{}"
+      inventory-check-keyword:
+        step:
+          1:
+            tip: "输入检测范围，name表示只检测展示名，lore表示只检测描述，all表示都检查"
+            title: "&a✔"
+            subtitle: "&f成功指定检测范围 &b{}"
+            incorrect-range: "&e'{enter}' &c不是一个正确的检测范围，提示：输入name表示只检测展示名，输入lore表示只检测描述，输入all表示都检查"
+          2:
+            tip: "上传关键词列表，输入内容后发送即添加一行，输入-l结束并上传整个列表"
+            title: "&a✔"
+            subtitle: "&f成功上传关键词列表 &b{}"
+      inventory-check-type:
+        step:
+          1:
+            tip: "上传种类信息列表，输入内容后发送即添加一行，格式为Material名+冒号+子ID，输入-l结束并上传整个列表"
+            title: "&a✔"
+            subtitle: "&f成功上传种类信息列表 &b{}"
+      pre-game-command:
+        step:
+          1:
+            tip: "上传指令列表，输入内容后发送即添加一行，格式为执行身份+冒号+内容，输入-l结束并上传整个列表"
+            title: "&a✔"
+            subtitle: "&f成功上传指令组 &b{}"
+            incorrect-executor: "&e'{enter}' &c不是一个正确的执行身份名，提示：player表示以玩家身份执行，op表示以管理员身份执行，console表示以后台身份执行，console_single_time则表示以后台身份执行一次，不针对任何玩家"
+      spectator:
+        step:
+          1:
+            tip: "左键点击方块选择观战区域A点"
+            title: "&a✔"
+            subtitle: "&f成功选择A点 坐标&e{}"
+          2:
+            tip: "左键点击方块选择观战区域B点"
+            title: "&a✔"
+            subtitle: "&f成功选择B点 坐标&e{}"
+          3:
+            tip: "点击屏幕使当前位置作为观战玩家的传送点"
+            title: "&a✔"
+            subtitle: "&f成功选择观战传送点 坐标&e{}"
+          4:
+            tip: "输入T或F分别表示是否向玩家展示对战双方的实时血量情况"
+            title: "&a✔"
+            subtitle: "&f成功设置是否向玩家展示对战双方的实时血量情况：{}"
+      ban-entity-spawn:
+        step:
+          1:
+            tip: "上传实体白名单列表，输入实体的枚举名后发送即添加一种，输入-l结束并上传整个列表，允许只输入-l跳过设置白名单"
+            title: "&a✔"
+            subtitle: "&f成功上传枚举列表 &b{}"
+Command:
+  parameter:
+    player: "玩家名"
+    value: "值"
+    arena-id: "竞技场ID"
+    source-arena-id: "源竞技场ID"
+    target-arena-id: "目标竞技场ID"
+    arena-type: "类型"
+    arena-function: "附加功能ID"
+    language-file-name: "文件名"
+    point: "积分数"
+    page: "页数"
+    row: "行数"
+    line: "列数"
+    description: "描述语"
+    value-or-content: "值或内容"
+    command-executor: "执行身份"
+    index: "序号"
+    ranking-type: "排行榜类型ID"
+    ranking-page: "排行榜页码"
+    reason: "原因"
+  correct: "&e[纠错提示] {command} &6[clickable]command::&7(点击键入)::&f点击快速输入这条指令[clickable]"
+  suggest: "&7你想输入的是否为:&f {command} &6[clickable]command::&f(点击键入)::&f点击快速输入这条指令[clickable]"
+  title:
+    adminhelp: "&d管理员帮助"
+    help: "&d玩家帮助"
+    point: "&d积分帮助"
+    shop: "&d积分兑换商城帮助"
+    level: "&d等级系统帮助"
+    blacklist: "&d黑名单帮助"
+    lobby: "&d大厅帮助"
+    arena: "&d竞技场帮助"
+    rank: "&d排行榜帮助"
+  main:
+    help: "&f查看基础帮助"
+    admin-help: "&f查看管理员帮助"
+  sub:
+    arena:
+      series-description: "&b&l查看竞技场相关指令帮助"
+      list-description: "&b查看所有竞技场"
+      info-description: "&b查看本服已装载的全部竞技场类型"
+      create-description: "&b创建指定类型的竞技场"
+      view-description: "&b查看某个竞技场的属性信息"
+      delete-description: "&b删除某个竞技场"
+      function-add-description: "&b为某个竞技场增加一项附加功能"
+      function-remove-description: "&b为某个竞技场移除一项附加功能"
+      function-reset-description: "&b为某个竞技场的某项附加功能重设数据"
+      function-clear-description: "&b为某个竞技场清除所有附加功能"
+      function-list-description: "&b查看某个竞技场的所有附加功能"
+      function-type-description: "&b查看某个竞技场类型所定义的所有附加功能"
+      function-copy-description: "&b复制某个竞技场的某个附加功能到另一个竞技场"
+      list-empty: "&c服务器内未设置任何竞技场！"
+      list-heading: "&b竞技场列表如下："
+      list-body: "&f&l{index}. &f{arena_name} &3(类型:{arena_type} ID:{arena_id})"
+      list-ending: "&b共计 &3&l{number} &b个竞技场"
+      type-heading: "&b竞技场类型如下："
+      type-body: "&f&l{index}. &b{arena_type_name} &3(ID:{arena_type_id})"
+      type-ending: "&b共计 &3&l{number} &b个类型"
+      create-fail-invalid-type: "&c不存在 &e'{enter}' &c这个类型 [clickable]view::&f&n点击查看所有类型[clickable]"
+      invalid-id: "&c不存在ID为 &e'{enter}' &c的竞技场 [clickable]view::&f&n点击查看所有竞技场对应的ID[clickable]"
+      type:
+        invalid-id: "&c不存在类型ID为 &e'{enter}' &c的竞技场 [clickable]view::&f&n点击查看所有类型的竞技场对应的ID[clickable]"
+      function:
+        invalid-id: "&6{arena_type_entered} &c类型的竞技场未定义ID为 &e'{function_entered}' &c的附加功能 [clickable]view::&f&n点击查看{arena_type_entered}类型的竞技场定义的所有功能ID[clickable]"
+        type-empty: "&c{arena_type}类型的竞技场没有定义任何附加功能"
+        type-heading: "&b{arena_type}类型的竞技场定义的附加功能如下："
+        type-body:
+          - "&f&l{index}. &b{arena_function_name} &3(ID:{arena_function_id})"
+          - "&7描述：{arena_function_description}"
+        type-ending: "&b共计 &3&l{number} &b种附加功能"
+        copy-invalid-source-arena-id: "&c请输入一个有效的源竞技场ID！ID为 &e'{enter}' &c的竞技场不存在 [clickable]view::&f&n点击查看所有竞技场对应的ID[clickable]"
+        copy-invalid-target-arena-id: "&c请输入一个有效的目标竞技场ID！ID为 &e'{enter}' &c的竞技场不存在 [clickable]view::&f&n点击查看所有竞技场对应的ID[clickable]"
+        copy-different-type: "&c不可以对不同类型的竞技场进行该复制操作！源竞技场 &e{source_arena_name}&c为 &e{source_arena_type}&c 的，而目标竞技场 &e{target_arena_name}&c 为{target_arena_type}的！"
+        copy-empty-function: "&c源竞技场 &e{source_arena_name}&c 尚未添加附加功能：&e{function} [clickable]view::&f&n点击查看{source_arena_type}类型的竞技场定义的所有功能ID[clickable]"
+        copy-successfully: "&a成功将竞技场 &3{source_arena}&a 的附加功能数据 &e{function} &a复制到了竞技场 &b{target_arena} &a中！"
+        copy-successfully-overwrite: "&a成功将竞技场 &3{source_arena}&a 的附加功能数据 &e{function} &a复制，并覆盖了竞技场 &b{target_arena} &a原本相应的数据！"
+        add-repeatedly: "&c竞技场 &6{arena} &c已经包含了ID为 &e'{function_entered}' &c的附加功能了，无需重复添加"
+        add-enter-progress: "&d尝试为竞技场 &a{arena} &d增添附加功能 &b{function}&d，请按照提示完成操作"
+        add-successfully: "&a成功为竞技场 &e{arena} &a增添附加功能 &b{function}"
+        remove-fail-not-exists: "&c竞技场 &e{arena} &c本来就未增添ID为 &e'{function_id}' &c的附加功能"
+        remove-successfully: "&a成功为竞技场 &e{arena} &a移除附加功能 &b{function}"
+        reset-fail-not-exists: "&c竞技场 &e{arena} &c本来就未增添ID为 &e'{function_id}' &c的附加功能"
+        reset-fail-no-data-needed: "&c竞技场 &e{arena} &c的附加功能 &e'{function_id}' &c不需要上传数据"
+        reset-enter-progress: "&d尝试为竞技场 &a{arena} &d重设附加功能 &b{function}&d的数据，请按照提示完成操作"
+        clear-successfully: "&a成功清除竞技场 &e{arena} &a的所有附加功能"
+        list-empty: "&c竞技场 &e{arena} &c尚未拥有任何附加功能"
+        list-heading: "&b竞技场 &f{arena} &b的附加功能如下："
+        list-body:
+          - "&f&l{index}. &b{arena_function_name} &3(ID:{arena_function_id})"
+          - "&7描述：{arena_function_description}"
+          - "&7数据：{arena_function_data}"
+        list-ending: "&b共计 &3&l{number} &b种已添加的附加功能"
+      view:
+        - "&e=============================="
+        - "&a名称：&b{arena_name}"
+        - "&aID：&b{arena_id}"
+        - "&a类型：&b{arena_type}"
+        - "&a附加功能：&b{function_number}项[clickable]view_function::&7(点击查看)::&f点击查看已添加的附加功能名称和数据[clickable]"
+        - "&e=============================="
+      delete-successfully: "&a成功删除ID为 &b{arena_id} &a的竞技场"
+    shop:
+      series-description: "&b&l查看积分商城相关指令帮助"
+      description: "&b打开积分兑换商城"
+      help-description: "&b&l查看积分兑换商城的管理员帮助"
+      add-description: "&b将手上的物品作为奖品添加到积分兑换商城中"
+      delete-description: "&b删除某个奖品"
+      reset-description: "&b为某个奖品重设价格/描述/等级限制"
+      command:
+        clear-description: "&b移除某个奖品的所有兑换后指令"
+        list-description: "&b查看某个奖品的所有兑换后指令"
+      add-successfully: "&a奖品添加成功！&2(位置：第{page}页，第{row}行，第{column}行)"
+      add-empty-itemstack: "&c请把要上架的物品拿在手上！"
+      delete-successfully: "&a奖品删除成功！&2(位置：第{page}页，第{row}行，第{column}行)"
+      invalid-loc: "&c不存在位置为&e'第{page}页，第{row}行，第{column}行'&c的奖品，请重新检查输入"
+      reset-point-successfully: "&a成功修改兑换积分需求为 &b{point} &a点！&2(位置：第{page}页，第{row}行，第{column}行)"
+      reset-description-successfully: "&a成功修改奖品的描述为&f'&7{description}&f'  &2(位置：第{page}页，第{row}行，第{column}行)"
+      reset-level-limit-successfully: "&a成功修改兑换的等级限制为 &b{level} &a级！ &2(位置：第{page}页，第{row}行，第{column}行)"
+      command-add-successfully: "&a成功添加兑换后指令 &f{command_content}&f &a执行身份为&b{command_executor} &2(位置：第{page}页，第{row}行，第{column}行)"
+      command-add-tip-executor:
+        - "&e[用法提示]"
+        - "&7'{enter}' &f不是一个有效的执行身份"
+        - "&f执行身份：&b'player'&f或&b'p'&f代表&b玩家；&d'player'&f或&d'p'&f代表&d玩家；&e'player'&f或&e'p'&f代表&e后台"
+        - "&f示例：&e{command_entered_corrected} [clickable]type::&7(点击键入)::&f点击快速键入这条指令[clickable]"
+      command-remove-successfully: "&a成功删除兑换后指令 &f'&7/{command}&f' &2(奖品位置：第{page}页，第{row}行，第{column}行；指令序号：{index})"
+      command-index-is-not-found: "&e'{index}' &c不是一个正确的指令序号，请检查输入"
+      command-clear-successfully: "&a成功清除了 &b{number} &a条兑换后指令 &2(位置：第{page}页，第{row}行，第{column}行)"
+      command-empty: "&c该奖品没有设置任何兑换后执行的指令"
+      command-list-heading: "&b兑换后指令列表如下： &3(位置：第{page}页，第{row}行，第{column}行)"
+      command-list-body: "&2&l{index}. &a/{command_content} &f(执行身份:{command_executor}) [clickable]remove::&7[点击移除]::&f点击移除这条指令[clickable]"
+      command-list-ending: "&b共计 &3&l{number} &b条兑换后指令"
+    point:
+      series-description: "&b&l查看积分相关指令帮助"
+      view-self-description: "&b查看自己的积分"
+      add-description: "&b为某个玩家增加积分"
+      set-description: "&b为某个玩家设置积分"
+      view-player-description: "&b查看某个玩家的积分"
+      view-self: "&b我的积分：&d{point}"
+      add-successfully: "&a成功添加为玩家 &b{player} &a添加 &6{point} &a积分"
+      set-successfully: "&a成功添加将玩家 &b{player} &a的积分设置为 &6{point}"
+      view-player: "&a玩家 &b{player} &a的积分为 &6{point}"
+    level:
+      series-description: "&b&l查看PVP等级相关指令帮助"
+      view-self-description: "&b查看自己的等级与经验信息"
+      view-player-description: "&b查看某个玩家的等级与经验"
+      exp-description: "&b为某个玩家增加/设置经验"
+      view-self:
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - "    &a当前等级: &e{level}"
+        - "    &a当前段位: &f{tier_title}"
+        - "    &a经验总量: &3{total_exp}"
+        - "    &a升级所需: &3{need_exp}"
+        - "    &a升级进度: &f{progress_bar_level_20_■_2_7} &f({progress_value}%)"
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      view-player:
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - "    &a玩家名称: &b{player}"
+        - "    &a当前等级: &e{level}"
+        - "    &a当前段位: &f{tier_title}"
+        - "    &a经验总量: &3{exp}"
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      add-successfully: "&a成功添加为玩家 &b{player} &a添加 &6{exp} &a点经验"
+      set-successfully: "&a成功添加将玩家 &b{player} &a的经验设置为 &6{exp}"
+    rank:
+      series-description: "&b&l查看排行榜相关指令帮助"
+      me-description: "&b查看自己在各个排行榜的排名"
+      view-description: "&b查看某个排行榜"
+      type-description: "&b查看所有类型的排行榜及其对应的ID"
+      refresh-description: "&b手动刷新某个排行榜"
+      hologram-description: "&b添加/删除/移动某个排行榜对应的全息图"
+      me-heading:
+        - "&b你在各个排行榜的概括信息如下"
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - ""
+      me-body: "    &f{ranking_name} &a({rank}&2/{total}&a) [clickable]view_ranking::&7[点击查看]::&f点击查看&f{ranking_name}&f的具体数据[clickable]"
+      me-body-no-data: "    &f{ranking_name} &7(无记录) [clickable]view_ranking::&7[点击查看]::&f点击查看&f{ranking_name}&f的具体数据[clickable]"
+      me-ending:
+        - ""
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      view-heading:
+        - "{ranking_name}[clickable]ranking_description::&7(查看介绍)::{ranking_description}[clickable]"
+        - "&7&m──&f&l&m──────────────────&7&m──"
+        - ""
+      view-body: "   &f&l[&7{rank}&f&l] &b{player} &f- &3{data}{extra}"
+      view-ending:
+        - "   [clickable]previous_page::&9[上一页]::点击查看上一页[clickable] &9{current_page}/{total_pages} [clickable]next_page::&9[下一页]::点击查看下一页[clickable]"
+        - "&7&m──&f&l&m──────────────────&7&m──"
+        - ""
+      view-ending-show-me: "&e你在该榜排名&6{rank}/{total} &e数据:&6{data}{extra}"
+      view-ending-show-me-no-data: "&e你在该排行榜中无数据记录"
+      view-invalid-ranking-type-id: "&c类型ID为 &e'{enter}' &c的排行榜不存在 [clickable]view::&f&n点击查看所有类型ID[clickable]"
+      view-empty: "&c排行榜 &e{ranking}&c 暂时没有数据"
+      view-invalid-ranking-page: "&c请输入有效的页码，该排行榜的总页数为&6{total_pages}&c页"
+      type-heading: "&b排行榜类型如下："
+      type-body:
+        - "&f&l{index}. &b{type_name} &3(ID:{type_id})"
+        - "&7描述:&f{description}"
+      type-ending: "&b共计 &3&l{number} &b种排行榜"
+      refresh-internal-successfully: "&a成功手动刷新插件内置排行榜：&f{ranking_name}&7(ID:{ranking_id})"
+      hologram-disabled: "&c全息模块已关闭或未装载受本插件支持的全息插件，暂时无法使用此功能"
+      hologram-add-fail-already-exists: "&e{ranking} &c已经被添加了全息图，位置：&e{location}"
+      hologram-add-successfully: "&a成功为排行榜 &b{ranking} &a添加全息图，位置：&e{location}"
+      hologram-delete-fail-not-exists: "&c无效删除，&e{ranking} &c尚未被添加全息图"
+      hologram-delete-successfully: "&a成功为排行榜 &b{ranking} &a删除全息图，位置：&e{location}"
+      hologram-move-fail-not-exists: "&c无效移动，&e{ranking} &c尚未被添加全息图"
+      hologram-move-successfully: "&a成功为排行榜 &b{ranking} &a移动全息图，新的位置：&e{location}"
+    lobby:
+      series-description: "&b&l查看大厅相关指令帮助"
+      description: "&b前往大厅"
+      help-description: "&b查看大厅的管理员帮助"
+      set-description: "&b将当前所在位置设置为大厅"
+      delete-description: "&b删除大厅"
+      none: "&c服务器未设置大厅传送点"
+      set-successfully: "&a成功设置大厅传送点为你当前位置"
+      update-successfully: "&a大厅传送点已更新为你当前位置"
+      delete-fail-none: "&c服务器本来就没设置大厅传送点"
+      delete-successfully: "&a成功移除大厅传送点"
+    blacklist:
+      series-description: "&b&l查看黑名单相关指令帮助"
+      add-description: "&b将某个玩家添加到黑名单中"
+      remove-description: "&b把某个玩家从黑名单中移除"
+      view-description: "&b查看黑名单列表"
+      add-successfully: "&a成功将玩家 &b{player} &a添加到黑名单中"
+      remove-successfully: "&a成功将玩家 &b{player} &a从黑名单中移除"
+      the-player-has-been-in: "&c玩家 &e{player} &c已经在黑名单中了"
+      the-player-not-found: "&c玩家 &e'{player}' &c本来就不在黑名单中"
+      view-empty: "&c当前黑名单中没有任何玩家"
+      view-heading: "&b黑名单如下："
+      view-body: "&2&l{index}. &a{player}[clickable]remove::&7(点击移除)::&f点击从黑名单中移除玩家：&a{player}[clickable]"
+      view-ending: "&b共计 &3&l{number} &b个玩家"
+    stop:
+      description: "&b&l强制停止某个竞技场的比赛"
+      fail-arena-not-exists: "&c竞技场 &e'{arena}'&c 不存在，无法执行停止操作。请检查输入"
+      fail-no-game: "&c竞技场 &e{arena}&c 当前不处于比赛状态"
+      tentatively: "&7正在强制停止模式为 &3{arena_type} &7的竞技场 &b{arena}&a 上的比赛..."
+    reload:
+      description: "&b&l重载配置文件和所有语言文件"
+      start: "&7开始重载配置文件并尝试应用..."
+      successfully: "&a重载完成！历时 &b{time} &a毫秒"
+    start:
+      description: "&b打开竞技场选择面板"
+      fail-self-in-black-list: "&c当前你处于黑名单中，无法启动开始面板"
+    send:
+      description: "&b向某个玩家发送比赛邀请"
+      fail-self-in-black-list: "&c当前你处于黑名单中，无法发起比赛邀请"
+      fail-send-to-self: "&c你不能向自己发送比赛邀请，请输入其他玩家名"
+      fail-no-arenas: "&c服务器没有设置任何竞技场，无法发起比赛邀请"
+      fail-offline: "&c无法发送比赛邀请：玩家 &e'{player}' &c不在线或不存在"
+      fail-recipient-in-black-list: "&c当前玩家 &e{player} &c处于黑名单中，无法向其发送比赛邀请"
+      fail-invalid-arena-id: "&cID为竞技场 &e'{enter}' &c的竞技场不存在，请检查输入"
+      fail-arena-disabled: "&c竞技场 &e{arena} &c处于停用状态，请换一个指定"
+      fail-frequently: "&c你在 &e{second} &c秒前已经向玩家 &e{player} &c发送过比赛邀请了，请等待对方处理"
+      successfully: "&a成功向玩家 &b{player} &a发送比赛邀请，请等待对方处理"
+      receive:
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - ""
+        - " &b收到来自&e{player}&b的比赛邀请  [clickable]accept::&a&l[✔]::&a点击接受邀请[clickable] [clickable]decline::&c&l[✘]::&c点击谢绝邀请[clickable]"
+        - ""
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      receive-notify-designated-arena: "&3&l[!]&f对方指定了竞技场地图&e{arena_name}&7({arena_type}&7)"
+    accept:
+      description: "&b接受（来自某个玩家的）比赛邀请"
+      fail-none: "&c你没有任何待接受的邀请"
+      fail-time-out: "&c失效邀请：玩家 &e{player} &c向你发送的邀请因为长时间未被处理而失效了"
+      fail-offline: "&c无效邀请：玩家 &e'{player}' &c不在线或不存在"
+      fail-has-not-sent: "&c无效邀请：玩家 &e'{player}' &c还未向你发送过邀请"
+      fail-has-no-arenas: "&c服务器没有设置任何竞技场，无法开始比赛"
+      fail-has-no-available-arenas: "&c服务器还未设置最小开赛人数小于3的竞技场"
+      fail-has-no-available-arenas-temporarily: "&c当前暂时没有可用的最小开赛人数小于3的竞技场"
+      success-receiver: "&a已接受玩家 &b{player} &a的邀请"
+      success-sender: "&a玩家 &b{player} &a接受了你的邀请"
+      success-notify-randomly-chosen-arena: "&b&l[!]&3由于没有指定竞技场，系统自动为你们随机选择了竞技场&f{arena_name}&7(&f{arena_type}&7)"
+      choose-list-heading: "&b当前你有多个待处理的邀请，请选择要接受的："
+      choose-list-body: "&f&l{index}. &f{player} &7(指定竞技场: {arena}) [clickable]accept::&a&l[接受]::&a点击接受邀请[clickable]"
+      choose-list-ending: "&b共计 &3&l{number} &b条待处理邀请"
+      decline-none: "&c你没有任何待拒绝的邀请"
+    decline:
+      description: "&b谢绝（来自某个玩家的）比赛邀请"
+      fail-time-out: "&c失效邀请：玩家 &e{player} &c向你发送的邀请因为长时间未被处理而失效了"
+      fail-offline: "&c无效邀请：玩家 &e'{player}' &c不在线或不存在"
+      fail-has-not-sent: "&c无效邀请：玩家 &e'{player}' &c还未向你发送过邀请"
+      success-receiver: "&a已拒绝玩家 &b{player} &a的邀请"
+      success-sender: "&c玩家 &6{player} &c谢绝了你的邀请"
+      choose-list-heading: "&b当前你有多个待处理的邀请，请选择要拒绝的："
+      choose-list-body: "&f&l{index}. &f{player} [clickable]decline::&c&l[拒绝]::&c点击拒绝邀请[clickable]"
+      choose-list-ending: "&b共计 &3&l{number} &b条待处理邀请"
+    wait:
+      description: "&b加入某个竞技场或其等待队列"
+    spectate:
+      description: "&b观看某个竞技场的比赛"
+      fail-arena-not-exists: "&c竞技场 &e'{arena}' &c不存在，无法观看"
+      fail-arena-disabled: "&c竞技场 &e{arena} &c处于停用状态，无法观看"
+      fail-arena-no-games: "&c竞技场 &e{arena} &c现在没有正在进行的比赛，无法观看"
+    quit:
+      description: "&b退出当前比赛(比赛时使用)"
+      not-in-arena: "&c只有在竞技场比赛时才能使用这个指令"
+      successfully: "&b你退出了竞技场 &e{arena} &b上的比赛"
+    record:
+      description: "&b打开比赛记录面板"
+    lang:
+      description: "&b切换语言环境"
+      list-heading: "&b语言文件如下："
+      list-body: "&2&l{index}. &a{file}[clickable]switch::&7(点击切换)::&f点击将自己的语言环境切换为：&a{file}[clickable]"
+      list-ending: "&b共计 &3&l{number} &b个文件"
+      no-file-installed: "&c服务器未装载任何其他语言文件"
+      the-file-not-exists: "&c不存在名为 &e'{file}' &c的语言文件"
+      switch-successfully: "&a切换成功！当前语言环境：{language}"
+    join:
+      arena-not-exists: "&c竞技场 &e'{arena}'&c 不存在，无法加入。请检查输入"
+      fail-arena-disabled: "&c竞技场 &e{arena}&c 处于停用状态，暂不可加入"
+      arena-in-progress-closed: "&c竞技场 &e{arena}&c 不允许中途加入！"
+      arena-in-progress-opened-full: "&c竞技场 &e{arena}&c 人数已满，请稍后再尝试加入"
+      game-tentatively: "&a正在尝试加入竞技场：&b{arena}"
+  shop:
+    command:
+      add-description: "&b为某个奖品添加一条兑换后执行的指令"
+      remove-description: "&b为某个奖品移除一条兑换后执行的指令"
+Item:
+  gui:
+    shop:
+      button-previous-page: "&9上一页"
+      button-next-page: "&9下一页"
+      reward-information:
+        - ""
+        - "&e&l[兑换所需] &6{point}点积分"
+        - "&e&l[本服已兑] &6{volume}份"
+        - "&e&l[奖品描述] &7{description}"
+        - ""
+      reward-level-limit-tip-yes: "&2&l[&a&l!&2&l]&7你已达到兑换此奖品所需要的等级: {level}"
+      reward-redeem-tip-yes: "&b点击兑换：&b&l{point_now}&3/{point_need}"
+      reward-redeem-tip-no-enough-point: "&c积分不足：&c&l{point_now}&e/{point_need}"
+      reward-redeem-tip-no-enough-level: "&c等级不足：&c&l{level_now}&e/{level_need}"
+    record:
+      show-tip: "&b[左键点击] &f向聊天框中发送本记录"
+      print-tip: "&d[右键点击] &f将本记录打印到手持的纸张上&7(需要消耗{point}积分)"
+    start:
+      arena-information:
+        - ""
+        - "&f状态: &f{state}"
+        - "&f人数: &a{now_number}&2/{max_number}"
+        - ""
+        - "{button_message}"
+      arena-state:
+        waiting: "&a等待中"
+        in-progress-closed: "&c进行中&7(不可中途加入)"
+        in-progress-opened: "&b进行中&3(允许中途加入)"
+        disabled: "&c停用中"
+      arena-button-message:
+        waiting-start: "&b&l[点击等待]"
+        waiting-stop: "&3&l[点击取消等待]"
+        in-progress-closed: "&c&l[不可加入]"
+        in-progress-opened: "&a&l[点击加入]"
+        in-progress-opened-full: "&c&l[人数已满]"
+        disabled: "&c&l[不可用]"
+GUI:
+  already-the-first-page: "&c已经是第一页了"
+  already-the-last-page: "&c已经是最后一页了"
+  type:
+    shop:
+      title: "&9积分兑换商城"
+      empty: "&c积分兑换商城暂未设置任何奖品"
+      redeem-unsuccessfully-insufficient-points: "&c积分不足！你需要 &e{point_need} &c才能兑换这个奖品，而你目前只有 &e{point_now}"
+      redeem-unsuccessfully-insufficient-level: "&c等级不足！你需要达到 &e{level_need} &c级兑换这个奖品，而你目前为 &e{level_now} &c级，请继续努力"
+      redeem-successfully: "&b兑换成功！奖品已发送到你的背包"
+      redeem-successfully-but-drop: "&3兑换成功！&b&n但由于背包空间不足，兑换到的奖品以掉落物的形式在你当前的位置出现，总共 {number} 种"
+    record:
+      title: "&9{player}的比赛记录"
+      empty: "&c暂时没有任何比赛记录"
+      show-frequently: "&c请等待 &e{time} &c秒再展示比赛记录"
+      show-content: "&f{player} &7: [clickable]show::&b[我的比赛记录]::{content}[clickable]&7(鼠标移动到文字上方查看)"
+      print-insufficient-point: "&c需要 &e{point_need} &c点积分才能打印一次比赛记录，而你现在只有 &e{point_now} &c点"
+      print-fail-no-paper-in-hand: "&c请先把纸张拿在手上"
+      print-fail-paper-has-meta: "&c打印用的纸张应为普通的纸"
+      print-successfully: "&a打印成功！请查看你的纸张"
+    start:
+      title: "&9竞技场列表"
+      empty: "&c服务器未创建任何竞技场"
+      use-while-in-game: "&c你现在正处于竞技场 &e{arena}&c 的比赛中，无法执行此操作"
+      state:
+        waiting-operation-cooldown: "&7请不要过于频繁地操作等待功能"
+        in-progress-closed: "&c竞技场 &e{arena}&c 不允许中途加入"
+        in-progress-opened-full: "&c竞技场 &e{arena}&c 已经满人，暂不可加入"
+        in-progress-opened: "&a正在加入竞技场：&b{arena}"
+        disabled: "&c竞技场 &e{arena}&c 处于停用状态！"
+    item-display:
+      title: "&9物品详情"
+Ranking:
+  hologram:
+    heading:
+      - "{ranking_name}"
+      - "{ranking_description}"
+    body: "&b&lTOP{rank}.&b{player} &f&l- &3{data}{extra}"
+    ending: "---"
+  type:
+    classic-wins:
+      name: "&b经典模式胜场榜"
+      description: "&7在经典模式中赢下的场次越多排名越高"
+    classic-win-rate:
+      name: "&d经典模式胜率榜"
+      description: "&7在经典模式中的胜率越高排名越靠前"
+    exp:
+      name: "&a经验榜"
+      description: "&7经验总额越多排名越靠前"
+    total-game-number:
+      name: "&e全模式场数榜"
+      description: "&7即参与经典模式及DT任意附属插件的任意模式的次数"
+    total-game-time:
+      name: "&6全模式时长榜"
+      description: "&7即参与经典模式及DT任意附属插件的任意模式的时长，按秒数记"
+    classic-game-number:
+      name: "&e经典模式场数榜"
+      description: "&7即参与经典模式的次数"
+    classic-game-time:
+      name: "&6经典模式时长榜"
+      description: "&7即参与经典模式的时长，按秒数记"

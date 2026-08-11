@@ -1,0 +1,705 @@
+LanguageName: "&c繁體中文機翻版(系統預置)"
+String:
+  none: "無"
+  true: "是"
+  false: "否"
+  list: "{line}行列表：{brief_content}"
+  win: "&a勝利"
+  lose: "&7失敗"
+  draw: "&6平手"
+  games: "場"
+  seconds: "秒"
+  no-rank: "&7無排名"
+  command-executor:
+    player: "玩家"
+    op: "管理者"
+    console: "後台"
+Exception:
+  arena:
+    initialize-fail-invalid-arena-type: "競技場{arena_name}(ID:{arena_id}) 初始化失敗，不存在ID為'{arena_id}' 的競技場類型，請檢查是否缺少相關附屬插件"
+Level:
+  level-up-message: "&a恭喜你的DT等級升到了&b{level} &a級"
+  tier-up-message: "&b恭喜你的DT段位升到了&f{tier}"
+  tier-up-broadcast: "&a[恭喜] &b玩家&3{player} &b的段位升到了&f{tier}"
+  tier-down-message: "&c你的DT段位掉到了&f{tier}"
+Arena:
+  wait:
+    start: "&7已加入競技場&b{arena}&7 的等待隊列..."
+    switch: "&7已切換至競技場&b{arena}&7 的等待隊列..."
+    stop: "&7取消等待競技場：&b{arena}"
+  protection:
+    walk-in-while-available: "&c&l[!]&c無賽事時，你不能進入競技場&e{name}&c 的場地"
+    walk-in-while-in-progress: "&c&l[!]&c競技場&e{name}&c 正在比賽，請不要進入"
+    teleport-to-while-available: "&c&l[!]&c無賽事時，你不能傳送到競技場&e{name}&c 的場地"
+    teleport-to-while-in-progress: "&c&l[!]&c競技場&e{name}&c 正在比賽，請不要傳送過去"
+    attack-gamer: "&c&l[!]&c請不要幹擾競技場&e{name}&c 上的參與玩家"
+    break: "&c&l[!]&c你不能破壞競技場&e{name}&c 內的方塊"
+    place: "&c&l[!]&c你不能在競技場&e{name}&c 內放置方塊"
+    place-over: "&c&l[!]&c你不能在競技場&e{name}&c 上空放置方塊"
+    interact: "&c&l[!]&c你不能與競技場&e{name}&c 內的方塊互動"
+    pour-liquid: "&c&l[!]&c你不能在競技場&e{name}&c 內傾倒液體"
+    get-liquid: "&c&l[!]&c你不能撈取競技場&e{name}&c 內的液體"
+  type:
+    classic:
+      name: "經典"
+      start:
+        title: "&a&l比賽開始"
+        subtitle: "&f亮劍吧！"
+      end:
+        result-stopped: "&c&l[!]&c本場比賽被系統或管理員強制結束！將不會產生任何記錄"
+        result-stopped-with-reason: "&c&l[!]&c本場比賽被系統或管理員強制結束！將不會產生任何記錄。強制結束原因：&f{reason}"
+        result-win: "&2&l[!]&a你取得了本場經典模式下比賽的勝利"
+        result-lose: "&6&l[!]&c你在本場經典模式下的比賽中落敗"
+        result-draw: "&b&l[!]&3本場經典模式下的比賽以平手結束"
+        notify-info:
+          - "&7&m───&f&l&m────────────────────────&7&m───"
+          - " &b場地: &f{arena}"
+          - " &b對手: &f{player}&7(&f{level_display_name}&7)"
+          - " &b歷時: &3{time}秒"
+          - " &b經驗: &f{exp_change}"
+          - " &b更多資料：&7[clickable]more_data::&7(滑鼠懸停此處查看)::&b總計傷害:&3{total_damage}||&b最大傷害:&3{max_damage}||&b平均傷害:&3 {average_damage}[clickable]"
+          - "&7&m───&f&l&m────────────────────────&7&m───"
+        broadcast: "&3[戰報] &b玩家&d{winner} &b在經典模式競技場&e{arena}&b 上以&a{time} &b秒的時間擊敗了對手&e{loser} &b！"
+        broadcast-draw: "&3[戰報] 玩家&d{player1} &b和&d{player2} &b在經典模式競技場&e{arena}&b 上打成平手！歷時&a{time} &b秒"
+      damage-during-countdown: "&7比賽還沒還沒正式開始，不可發動攻擊"
+      use-command-in-game: "&c比賽過程中禁止使用這個指令"
+      quit-inform-opponent: "&d你的對手主動退出了比賽！"
+      leave-server-inform-opponent: "&d你的對手離開伺服器了！"
+      win-title: "&a&l贏"
+      win-subtitle: "&f恭喜你贏了這場比賽！"
+      delayed-back:
+        gamer-title: "&b&l{countdown}"
+        gamer-subtitle: "&7即將傳送離開競技場..."
+        spectator-title: "&b&l{countdown}"
+        spectator-subtitle: "&7即將傳送離開觀眾席..."
+      function:
+        time-limit:
+          name: "比賽限時"
+          description: "為比賽設定限定時間(單位為秒)，若超出限時則依預設方案判定輸贏或平手，需傳入整數型資料"
+          bossbar-title: "&f比賽剩餘&3{time} &f秒"
+          game-title: "&b&l{time}"
+          game-subtitle: "&f比賽即將開始..."
+        countdown:
+          name: "開始前倒數"
+          description: "為比賽設定開始前倒數(單位為秒)，需要傳入一個整數型資料表示秒數、傳入一個布林值表示是否允許倒數計時期間玩家移動"
+        check-inventory-keyword:
+          name: "入場前背包檢查(依關鍵字)"
+        inventory-check-keyword:
+          description: "停用某些特殊的物品入場，偵測背包中是否裝有名稱或lore中含有某些關鍵字的物品，如果有則制止開賽"
+          detected-tip: "&c&l[!] &c在你的背包中偵測到競技場&e{arena_name}&c 所停用的特殊物品：[clickable]item::&f[{item_name}]&7(點擊查看詳情):: {item_lore}[clickable]"
+          detected: "&c玩家&e{player}&c 背包裡攜帶有競技場&e{arena_name}&c 所禁用的特殊物品，已通知該玩家相關細節，請再次確保雙方都沒有攜帶其他禁用的特殊物品後再重新發起比賽"
+        inventory-check-type:
+          name: "入場前背包檢查(依物品種類)"
+          description: "為比賽設定背包攜帶物品限制，檢測背包中是否裝有某個特定種類的物品，如果有則制止開賽"
+          detected-tip: "&c&l[!] &c 在你的背包中偵測到競技場&e{arena_name}&c 所停用的特定種類物品：[clickable]item::&f[{item_name}]&7(點擊查看詳情): :{item_lore}[clickable]"
+          detected: "&c玩家&e{player}&c 背包裡攜帶有競技場&e{arena_name}&c 所禁用的特定種類物品，已通知該玩家相關細節，請再次確保雙方都沒有攜帶其他禁用種類的物品後再重新發起比賽"
+        pre-game-command:
+          name: "賽前執行指令組"
+          description: "為比賽設定玩家賽前剛入場時執行的指令組，支援分別以不同的身分執行"
+        spectate:
+          name: "觀戰"
+          description: "為比賽設置觀戰區域，使得玩家可與通過/dueltime spectate指令來觀看某個經典模式競技場的比賽"
+          gamer-health-bossbar: "&f選手&b{player}&f 的即時血量：&a{health}&2/{max_health}"
+          fail-unavailable: "&c管理員尚未給競技場&e{arena} &c開啟觀戰功能"
+          successfully: "&a已將你帶到競技場&b{arena} &a的觀戰區域！"
+          stop-successfully: "&a你結束了對競技場&b{arena} &a的觀看"
+          over:
+            - "&a你觀看的比賽結束！詳情如下："
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+            - " &b場地: &f{arena}"
+            - " &b選手: &3{gamers}"
+            - " &b獲勝: &d{winner}"
+            - " &b歷時: &3{time}秒"
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+          over-in-a-draw:
+            - "&a你觀看的比賽以平手結束，詳情如下："
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+            - " &b場地: &f{arena}"
+            - " &b選手: &3{gamers}"
+            - " &b歷時: &3{time}秒"
+            - "&7&m───&f&l&m────────────────────────&7&m───"
+          over-by-stop: "&c競技場&e{arena}&c 上的比賽被管理員強制結束！"
+          spectator-move-out-zone: "&c請不要離開觀賽區域，如果要結束觀賽，請再次輸入觀賽指令"
+        ban-entity-spawn:
+          name: "禁止實體生成(包括自然的與人為的)"
+          description: "禁止實體刷出(包括自然的與人為的)，可以設定白名單"
+  earn-point: "&a恭喜你因贏得比賽獲得了&d{point} &a點積分，當前積分：&a{point_now}"
+Record:
+  type:
+    classic:
+      title: "&f經典模式比賽紀錄"
+      content:
+        arena-name: "&b場地: &f{arena_name}"
+        result: "&b結果: &f{result}"
+        opponent: "&b對手: &e{opponent}"
+        time: "&b用時: &e{time}秒"
+        exp-change: "&b經驗變化: &f{exp_change}"
+        total-damage: "&b總計傷害: &e{total_damage}點"
+        max-damage: "&b最大傷害: &e{max_damage}點"
+        average-damage: "&b平均傷害: &e{average_damage}點"
+        date: "&b比賽日期: &e{date}"
+Error:
+  no-permission: "&c你沒有權限這麼做！"
+  not-player-executor: "&c只有玩家能執行這個指令！"
+  sub-command-not-exists: "&c子指令&e'{enter}' &c不存在，請檢查輸入"
+  incorrect-number-format: "&e'{enter}' &c不是數字，請注意格式"
+  incorrect-integer-format: "&e'{enter}' &c不是整數，請注意格式"
+  incorrect-id-format: "&e'{enter}' &c不符合ID命名規範，ID只能包含英文字母、數字和底線"
+  value-is-not-positive: "&c請輸入有效的正數！你所輸入的&e'{enter}' &c不符合條件"
+  value-is-negative: "&c請輸入非負數！你所輸入的&e'{enter}' &c不符合條件"
+  incorrect-boolean-format: "&c請輸入字母'T'或'F'，分別表示[是]和[否]'"
+  player-no-found: "&c名為&e'{player}' &c的玩家可能不存在"
+  incorrect-string-integer-pair-format: "&c請輸入&e文字:數字&c來表示字串-整數對，例如&e'example:3'"
+  incorrect-string-integer-pair-format-integer: "&c分割符&e':' &c後面應該為一個整數"
+  incorrect-executor-command-pair-format: "&c請輸入&e執行身分:指令內容&c，例如&e'console:fly {player}'"
+Progress:
+  repeatedly-join: "&c你已經在過程&e{progress} &c中了"
+  join-while-handling-other: "&c請先完成或退出程序&e{progress}"
+  join-successfully: "&a你已進入過程&b{progress} &a中，請按照後續提示逐步操作。&7(在此期間你可以根據需要輸入&f-r&7回退步驟，輸入&f-p&7暫停過程，輸入&f -c&7繼續過程，輸入&f-e&7退出過程)"
+  boss-bar-tip: "&a{name}({now}/{total}): {tip}"
+  boss-bar-free-tip:
+    - ""
+    - "&d{progress}&f:"
+    - "&b進度&f:&3{now}/{total} &f[{progress_bar_progress_20_|_a_7}&f]"
+    - "&b提示&f:&f{tip}"
+    - ""
+  boss-bar-message-finish-string: "&a&l大功告成"
+  auto-upload:
+    location-different-world: "&c你所選的位置點必須與上一個位置位於同一個世界！"
+    location-the-same-block: "&c你所選的點不能和上一個點位於同一個方塊"
+    location-overlay-with-other-arena: "&c當前選點和上一個選點所構成的三維空間與競技場&e{arena} &c的三維空間交疊！請換一個點"
+  finish:
+    message: "&f你完成了過程：§a{progress}"
+    title: "&b✦"
+    subtitle: "&f已完成程序：§a{progress}"
+  operation:
+    reverse:
+      title: "&6↺"
+      subtitle: "&7步驟回退"
+      the-first-step: "&c已經是第一步了，無法回退"
+    pause:
+      title: "&e┃┃"
+      subtitle: "&7暫停步驟操作"
+      has-been-paused: "&c已經處於暫停狀態"
+    continue:
+      title: "&a▶"
+      subtitle: "&7恢復步驟操作"
+      has-been-paused: "&c已經處於正常操作狀態"
+    exit:
+      successfully: "&7已退出程序：§a{progress}"
+    list:
+      enter:
+        title: "&f[&bT&f]"
+        subtitle: "&7已新增一行，目前清單：&f{brief_content}"
+      incorrect-data-type: "&c現在上傳的資料型別不是列表，不能使用這個運算子"
+      empty-data: "&c請先輸入一些內容"
+  type:
+    upload-data-for-arena-function: "上傳附加功能所需資料"
+    create-classic-arena:
+      name: "創建經典類型競技場"
+      step:
+        1:
+          tip: "左鍵點擊方塊選擇A點"
+          title: "&a✔"
+          subtitle: "&f成功選擇A點座標&e{}"
+        2:
+          tip: "左鍵點擊方塊選擇B點"
+          title: "&a✔"
+          subtitle: "&f成功選擇B點座標&e{}"
+        3:
+          tip: "點擊畫面使目前位置作為玩家1的出生點"
+          title: "&a✔"
+          subtitle: "&f成功選擇出生點1 座標&e{}"
+        4:
+          tip: "點擊畫面使目前位置作為玩家2的出生點"
+          title: "&a✔"
+          subtitle: "&f成功選擇出生點2 座標&e{}"
+        5:
+          tip: "輸入競技場ID (只能包含英文、數字、底線）"
+          title: "&a✔"
+          subtitle: "&f成功設定ID &b{}"
+        6:
+          tip: "輸入競技場名稱(支援顏色符號）"
+          title: "&a✔"
+          subtitle: "&f成功設定名稱&f{}"
+    set-function-time-limit:
+      name: "增添附加功能：時間限制"
+    set-function:
+      time-limit:
+        step:
+          1:
+            tip: "輸入時間限制，單位為秒"
+            title: "&a✔"
+            subtitle: "&f成功設定時間限制&b{}秒"
+      countdown:
+        step:
+          1:
+            tip: "輸入倒數秒數，單位為秒"
+            title: "&a✔"
+            subtitle: "&f成功設定倒數秒數&b{}秒"
+          2:
+            tip: "輸入T或F分別表示允許或不允許倒數計時期間玩家可以在競技場中移動"
+            title: "&a✔"
+            subtitle: "&f成功設定倒數計時期間玩家是否可以移動：{}"
+      inventory-check-keyword:
+        step:
+          1:
+            tip: "輸入偵測範圍，name表示只偵測展示名，lore表示只偵測描述，all表示都檢查"
+            title: "&a✔"
+            subtitle: "&f成功指定偵測範圍&b{}"
+            incorrect-range: "&e'{enter}' &c不是一個正確的偵測範圍，提示：輸入name表示只偵測展示名，輸入lore表示只偵測描述，輸入all表示都檢查"
+          2:
+            tip: "上傳關鍵字列表，輸入內容後發送即新增一行，輸入-l結束並上傳整個列表"
+            title: "&a✔"
+            subtitle: "&f成功上傳關鍵字列表&b{}"
+      inventory-check-type:
+        step:
+          1:
+            tip: "上傳種類資訊列表，輸入內容後發送即新增一行，格式為Material名稱+冒號+子ID，輸入-l結束並上傳整個列表"
+            title: "&a✔"
+            subtitle: "&f成功上傳種類資訊列表&b{}"
+      pre-game-command:
+        step:
+          1:
+            tip: "上傳指令列表，輸入內容後發送即添加一行，格式為執行身份+冒號+內容，輸入-l結束並上傳整個列表"
+            title: "&a✔"
+            subtitle: "&f成功上傳指令組&b{}"
+            incorrect-executor: "&e'{enter}' &c不是正確的執行身份名，提示：player表示以玩家身份執行，op表示以管理員身份執行，console表示以後台身份執行，console_single_time則表示以後台身份執行一次，不針對任何玩家"
+      spectator:
+        step:
+          1:
+            tip: "左鍵點擊方塊選擇觀戰區域A點"
+            title: "&a✔"
+            subtitle: "&f成功選擇A點座標&e{}"
+          2:
+            tip: "左鍵點擊方塊選擇觀戰區域B點"
+            title: "&a✔"
+            subtitle: "&f成功選擇B點座標&e{}"
+          3:
+            tip: "點擊畫面使目前位置作為觀戰玩家的傳送點"
+            title: "&a✔"
+            subtitle: "&f成功選擇觀戰傳送點座標&e{}"
+          4:
+            tip: "輸入T或F分別表示是否向玩家顯示對戰雙方的即時血量狀況"
+            title: "&a✔"
+            subtitle: "&f成功設定是否向玩家展示對戰雙方的即時血量情況：{}"
+      ban-entity-spawn:
+        step:
+          1:
+            tip: "上傳實體白名單列表，輸入實體的枚舉名後發送即添加一種，輸入-l結束並上傳整個列表，允許只輸入-l跳過設置白名單"
+            title: "&a✔"
+            subtitle: "&f成功上傳列舉清單&b{}"
+Command:
+  parameter:
+    player: "玩家名"
+    value: "值"
+    arena-id: "競技場ID"
+    source-arena-id: "來源競技場ID"
+    target-arena-id: "目標競技場ID"
+    arena-type: "型別"
+    arena-function: "附加功能ID"
+    language-file-name: "檔案名稱"
+    point: "積分數"
+    page: "頁數"
+    row: "行數"
+    line: "列數"
+    description: "描述語"
+    value-or-content: "值或內容"
+    command-executor: "執行身分"
+    index: "序號"
+    ranking-type: "排行榜類型ID"
+    ranking-page: "排行榜頁碼"
+    reason: "原因"
+  correct: "&e[糾錯提示] {command} &6[clickable]command::&7(點選鍵入)::&f點選快速輸入這條指令[clickable]"
+  suggest: "&7你想輸入的是否為:&f {command} &6[clickable]command::&f(點選鍵入)::&f點選快速輸入這條指令[clickable]"
+  title:
+    adminhelp: "&d管理員幫助"
+    help: "&d玩家幫助"
+    point: "&d積分幫助"
+    shop: "&d積分兌換商城幫助"
+    level: "&d等級系統幫助"
+    blacklist: "&d黑名單幫助"
+    lobby: "&d大廳幫忙"
+    arena: "&d競技場幫助"
+    rank: "&d排行榜幫助"
+  main:
+    help: "&f查看基礎幫助"
+    admin-help: "&f查看管理員幫助"
+  sub:
+    arena:
+      series-description: "&b&l查看競技場相關指令幫助"
+      list-description: "&b查看所有競技場"
+      info-description: "&b查看本服已裝載的全部競技場類型"
+      create-description: "&b建立指定類型的競技場"
+      view-description: "&b查看某個競技場的屬性資訊"
+      delete-description: "&b刪除某個競技場"
+      function-add-description: "&b為某個競技場增加一項附加功能"
+      function-remove-description: "&b為某個競技場移除一項附加功能"
+      function-reset-description: "&b為某個競技場的某項附加功能重設資料"
+      function-clear-description: "&b為某個競技場清除所有附加功能"
+      function-list-description: "&b查看某個競技場的所有附加功能"
+      function-type-description: "&b查看某個競技場類型所定義的所有附加功能"
+      function-copy-description: "&b複製某個競技場的某個附加功能到另一個競技場"
+      list-empty: "&c伺服器內未設定任何競技場！"
+      list-heading: "&b競技場列表如下："
+      list-body: "&f&l{index}. &f{arena_name} &3(類型:{arena_type} ID:{arena_id})"
+      list-ending: "&b共&3&l{number} &b個競技場"
+      type-heading: "&b競技場類型如下："
+      type-body: "&f&l{index}. &b{arena_type_name} &3(ID:{arena_type_id})"
+      type-ending: "&b共&3&l{number} &b個型別"
+      create-fail-invalid-type: "&c不存在&e'{enter}' &c這個型別[clickable]view::&f&n點選查看所有型別[clickable]"
+      invalid-id: "&c不存在ID為&e'{enter}' &c的競技場[clickable]view::&f&n點擊查看所有競技場對應的ID[clickable]"
+      type:
+        invalid-id: "&c不存在類型ID為&e'{enter}' &c的競技場[clickable]view::&f&n點擊查看所有類型的競技場對應的ID[clickable]"
+      function:
+        invalid-id: "&6{arena_type_entered} &c類型的競技場未定義ID為&e'{function_entered}' &c的附加功能[clickable]view::&f&n點擊查看{arena_type_entered}類型的競技場定義的所有功能ID[ clickable]"
+        type-empty: "&c{arena_type}類型的競技場沒有定義任何附加功能"
+        type-heading: "&b{arena_type}類型的競技場定義的附加功能如下："
+        type-body:
+          - "&f&l{index}. &b{arena_function_name} &3(ID:{arena_function_id})"
+          - "&7描述：{arena_function_description}"
+        type-ending: "&b共&3&l{number} &b種附加功能"
+        copy-invalid-source-arena-id: "&c請輸入一個有效的來源競技場ID！ID為&e'{enter}' &c的競技場不存在[clickable]view::&f&n點擊查看所有競技場對應的ID[clickable]"
+        copy-invalid-target-arena-id: "&c請輸入一個有效的目標競技場ID！ID為&e'{enter}' &c的競技場不存在[clickable]view::&f&n點擊查看所有競技場對應的ID[clickable]"
+        copy-different-type: "&c不可以對不同類型的競技場進行該複製操作！來源競技場&e{source_arena_name}&c為&e{source_arena_type}&c 的，而目標競技場&e{target_arena_name}&c 為{target_arena_type}的！"
+        copy-empty-function: "&c源競技場&e{source_arena_name}&c 尚未添加附加功能：&e{function} [clickable]view::&f&n點擊查看{source_arena_type}類型的競技場定義的所有功能ID[clickable]"
+        copy-successfully: "&a成功將競技場&3{source_arena}&a 的附加功能資料&e{function} &a複製到了競技場&b{target_arena} &a中！"
+        copy-successfully-overwrite: "&a成功將競技場&3{source_arena}&a 的附加功能資料&e{function} &a複製，並覆蓋了競技場&b{target_arena} &a原本對應的資料！"
+        add-repeatedly: "&c競技場&6{arena} &c已經包含了ID為&e'{function_entered}' &c的附加功能了，無需重複添加"
+        add-enter-progress: "&d嘗試為競技場&a{arena} &d增添附加功能&b{function}&d，請按照提示完成操作"
+        add-successfully: "&a成功為競技場&e{arena} &a增添附加功能&b{function}"
+        remove-fail-not-exists: "&c競技場&e{arena} &c本來就未增添ID為&e'{function_id}' &c的附加功能"
+        remove-successfully: "&a成功為競技場&e{arena} &a移除附加功能&b{function}"
+        reset-fail-not-exists: "&c競技場&e{arena} &c本來就未增添ID為&e'{function_id}' &c的附加功能"
+        reset-fail-no-data-needed: "&c競技場&e{arena} &c的附加功能&e'{function_id}' &c不需要上傳資料"
+        reset-enter-progress: "&d嘗試為競技場&a{arena} &d重設附加功能&b{function}&d的數據，請按照提示完成操作"
+        clear-successfully: "&a成功清除競技場&e{arena} &a的所有附加功能"
+        list-empty: "&c競技場&e{arena} &c尚未擁有任何附加功能"
+        list-heading: "&b競技場&f{arena} &b的附加功能如下："
+        list-body:
+          - "&f&l{index}. &b{arena_function_name} &3(ID:{arena_function_id})"
+          - "&7描述：{arena_function_description}"
+          - "&7資料：{arena_function_data}"
+        list-ending: "&b共通&3&l{number} &b種已新增的附加功能"
+      view:
+        - "&e=============================="
+        - "&a名稱：&b{arena_name}"
+        - "&aID：&b{arena_id}"
+        - "&a型別：&b{arena_type}"
+        - "&a附加功能：&b{function_number}項目[clickable]view_function::&7(點擊查看)::&f點擊查看已新增的附加功能名稱和資料[clickable]"
+        - "&e=============================="
+      delete-successfully: "&a成功刪除ID為&b{arena_id} &a的競技場"
+    shop:
+      series-description: "&b&l查看積分商城相關指令幫助"
+      description: "&b打開點數兌換商城"
+      help-description: "&b&l查看積分兌換商城的管理員幫助"
+      add-description: "&b將手上的物品作為獎品添加到積分兌換商城中"
+      delete-description: "&b刪除某個獎品"
+      reset-description: "&b為某個獎品重設價格/描述/等級限制"
+      command:
+        clear-description: "&b移除某個獎品的所有兌換後指示"
+        list-description: "&b查看某個獎品的所有兌換後指示"
+      add-successfully: "&a獎品新增成功！&2(位置：第{page}頁，第{row}行，第{column}行)"
+      add-empty-itemstack: "&c請把要上架的物品拿在手上！"
+      delete-successfully: "&a獎品刪除成功！&2(位置：第{page}頁，第{row}行，第{column}行)"
+      invalid-loc: "&c不存在位置為&e'第{page}頁，第{row}行，第{column}行'&c的獎品，請重新檢查輸入"
+      reset-point-successfully: "&a成功修改兌換積分需求為&b{point} &a點！&2(位置：第{page}頁，第{row}行，第{column}行)"
+      reset-description-successfully: "&a成功修改獎品的描述為&f'&7{description}&f' &2(位置：第{page}頁，第{row}行，第{column}行)"
+      reset-level-limit-successfully: "&a成功修改兌換的等級限制為&b{level} &a級！&2(位置：第{page}頁，第{row}行，第{column}行)"
+      command-add-successfully: "&a成功加入兌換後指令&f{command_content}&f &a執行身分為&b{command_executor} &2(位置：第{page}頁，第{row}行，第{column}行)"
+      command-add-tip-executor:
+        - "&e[用法提示]"
+        - "&7'{enter}' &f不是一個有效的執行身分"
+        - "&f執行身分：&b'player'&f或&b'p'&f代表&b玩家；&d'player'&f或&d'p'&f代表&d玩家；&e'player'&f或&e'p'&f代表&e後台"
+        - "&f範例：&e{command_entered_corrected} [clickable]type::&7(點選鍵入)::&f點選快速鍵入這條指令[clickable]"
+      command-remove-successfully: "&a成功刪除兌換後指令&f'&7/{command}&f' &2(獎品位置：第{page}頁，第{row}行，第{column}行；指令序號：{index })"
+      command-index-is-not-found: "&e'{index}' &c不是一個正確的指令序號，請檢查輸入"
+      command-clear-successfully: "&a成功清除了&b{number} &a條兌換後指令&2(位置：第{page}頁，第{row}行，第{column}行)"
+      command-empty: "&c該獎品沒有設定任何兌換後執行的指示"
+      command-list-heading: "&b兌換後指令列表如下： &3(位置：第{page}頁，第{row}行，第{column}行)"
+      command-list-body: "&2&l{index}. &a/{command_content} &f(執行身分:{command_executor}) [clickable]remove::&7[點選移除]::&f點選移除這條指令[clickable] "
+      command-list-ending: "&b共&3&l{number} &b條兌換後指令"
+    point:
+      series-description: "&b&l查看積分相關指令幫助"
+      view-self-description: "&b看自己的點數"
+      add-description: "&b為某個玩家增加分數"
+      set-description: "&b為某位玩家設定積分"
+      view-player-description: "&b查看某個玩家的點數"
+      view-self: "&b我的積分：&d{point}"
+      add-successfully: "&a成功加入為玩家&b{player} &a加上&6{point} &a點數"
+      set-successfully: "&a成功加入將玩家&b{player} &a的點數設定為&6{point}"
+      view-player: "&a玩家&b{player} &a的點數為&6{point}"
+    level:
+      series-description: "&b&l查看PVP等級相關指令幫助"
+      view-self-description: "&b查看自己的等級與經驗資訊"
+      view-player-description: "&b查看某個玩家的等級與經驗"
+      exp-description: "&b為某位玩家增加/設定經驗"
+      view-self:
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - " &a目前等級: &e{level}"
+        - " &a當前段位: &f{tier_title}"
+        - " &a經驗總量: &3{total_exp}"
+        - " &a升級所需: &3{need_exp}"
+        - " &a升級進度: &f{progress_bar_level_20_■_2_7} &f({progress_value}%)"
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      view-player:
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - " &a玩家名稱: &b{player}"
+        - " &a目前等級: &e{level}"
+        - " &a當前段位: &f{tier_title}"
+        - " &a經驗總量: &3{exp}"
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      add-successfully: "&a成功加入為玩家&b{player} &a添加&6{exp} &a點經驗"
+      set-successfully: "&a成功加入將玩家&b{player} &a的經驗設定為&6{exp}"
+    rank:
+      series-description: "&b&l查看排行榜相關指令幫助"
+      me-description: "&b看自己在各排行榜的排名"
+      view-description: "&b看某個排行榜"
+      type-description: "&b查看所有類型的排行榜及其對應的ID"
+      refresh-description: "&b手動刷新某個排行榜"
+      hologram-description: "&b新增/刪除/移動某個排行榜對應的全像圖"
+      me-heading:
+        - "&b你在各排行榜的概括資訊如下"
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - ""
+      me-body: " &f{ranking_name} &a({rank}&2/{total}&a) [clickable]view_ranking::&7[點擊查看]::&f點擊查看&f{ranking_name}&f的具體數據[clickable]"
+      me-body-no-data: " &f{ranking_name} &7(無記錄) [clickable]view_ranking::&7[點擊查看]::&f點擊查看&f{ranking_name}&f的具體資料[clickable]"
+      me-ending:
+        - ""
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      view-heading:
+        - "{ranking_name}[clickable]ranking_description::&7(檢視介紹)::{ranking_description}[clickable]"
+        - "&7&m──&f&l&m──────────────────&7&m──"
+        - ""
+      view-body: " &f&l[&7{rank}&f&l] &b{player} &f- &3{data}{extra}"
+      view-ending:
+        - " [clickable]previous_page::&9[上一頁]::點選查看上一頁[clickable] &9{current_page}/{total_pages} [clickable]next_page::&9[下一頁]::點選檢視下頁[clickable]"
+        - "&7&m──&f&l&m──────────────────&7&m──"
+        - ""
+      view-ending-show-me: "&e你在該榜排名&6{rank}/{total} &e數據:&6{data}{extra}"
+      view-ending-show-me-no-data: "&e你在該排行榜中無資料記錄"
+      view-invalid-ranking-type-id: "&c型ID為&e'{enter}' &c的排行榜不存在[clickable]view::&f&n點選查看所有型別ID[clickable]"
+      view-empty: "&c排行榜&e{ranking}&c 暫時沒有數據"
+      view-invalid-ranking-page: "&c請輸入有效的頁碼，該排行榜的總頁數為&6{total_pages}&c頁"
+      type-heading: "&b排行榜類型如下："
+      type-body:
+        - "&f&l{index}. &b{type_name} &3(ID:{type_id})"
+        - "&7描述:&f{description}"
+      type-ending: "&b共&3&l{number} &b種排行榜"
+      refresh-internal-successfully: "&a成功手動刷新外掛程式內建排行榜：&f{ranking_name}&7(ID:{ranking_id})"
+      hologram-disabled: "&c全像模組已關閉或未裝載受本插件支援的全像插件，暫時無法使用此功能"
+      hologram-add-fail-already-exists: "&e{ranking} &c已經被加入了全像圖，位置：&e{location}"
+      hologram-add-successfully: "&a成功為排行榜&b{ranking} &a加上全像圖，位置：&e{location}"
+      hologram-delete-fail-not-exists: "&c無效刪除，&e{ranking} &c尚未被添加全像圖"
+      hologram-delete-successfully: "&a成功為排行榜&b{ranking} &a刪除全像圖，位置：&e{location}"
+      hologram-move-fail-not-exists: "&c無效移動，&e{ranking} &c尚未被添加全像圖"
+      hologram-move-successfully: "&a成功為排行榜&b{ranking} &a移動全像圖，新的位置：&e{location}"
+    lobby:
+      series-description: "&b&l查看大廳相關指令幫助"
+      description: "&b前往大廳"
+      help-description: "&b查看大廳的管理員幫助"
+      set-description: "&b將目前所在位置設為大廳"
+      delete-description: "&b刪除大廳"
+      none: "&c伺服器未設定大廳傳送點"
+      set-successfully: "&a成功設定大廳傳送點為你目前位置"
+      update-successfully: "&a大廳傳送點已更新為你目前位置"
+      delete-fail-none: "&c伺服器本來就沒設定大廳傳送點"
+      delete-successfully: "&a成功移除大廳傳送點"
+    blacklist:
+      series-description: "&b&l查看黑名單相關指令幫助"
+      add-description: "&b將某個玩家加入黑名單"
+      remove-description: "&b把某個玩家從黑名單中移除"
+      view-description: "&b查看黑名單清單"
+      add-successfully: "&a成功將玩家&b{player} &a加入黑名單"
+      remove-successfully: "&a成功將玩家&b{player} &a從黑名單移除"
+      the-player-has-been-in: "&c玩家&e{player} &c已經在黑名單中了"
+      the-player-not-found: "&c玩家&e'{player}' &c本來就不在黑名單中"
+      view-empty: "&c目前黑名單中沒有任何玩家"
+      view-heading: "&b黑名單如下："
+      view-body: "&2&l{index}. &a{player}[clickable]remove::&7(點選移除)::&f點選從黑名單移除玩家：&a{player}[clickable]"
+      view-ending: "&b共&3&l{number} &b個玩家"
+    stop:
+      description: "&b&l強制停止某個競技場的比賽"
+      fail-arena-not-exists: "&c競技場&e'{arena}'&c 不存在，無法執行停止操作。請檢查輸入"
+      fail-no-game: "&c競技場&e{arena}&c 目前不處於比賽狀態"
+      tentatively: "&7正在強制停止模式為&3{arena_type} &7的競技場&b{arena}&a 上的比賽..."
+    reload:
+      description: "&b&l重載設定檔和所有語言檔"
+      start: "&7開始重載設定檔並嘗試套用..."
+      successfully: "&a重載完成！歷時&b{time} &a毫秒"
+    start:
+      description: "&b打開競技場選擇面板"
+      fail-self-in-black-list: "&c目前你處於黑名單中，無法啟動開始面板"
+    send:
+      description: "&b傳送比賽邀請給某個玩家"
+      fail-self-in-black-list: "&c目前你處於黑名單中，無法發起比賽邀約"
+      fail-send-to-self: "&c你不能向自己發送比賽邀請，請輸入其他玩家名稱"
+      fail-no-arenas: "&c伺服器沒有設置任何競技場，無法發起比賽邀請"
+      fail-offline: "&c無法發送比賽邀請：玩家&e'{player}' &c不在線或不存在"
+      fail-recipient-in-black-list: "&c當前玩家&e{player} &c處於黑名單中，無法向其發送比賽邀請"
+      fail-invalid-arena-id: "&cID為競技場&e'{enter}' &c的競技場不存在，請檢查輸入"
+      fail-arena-disabled: "&c競技場&e{arena} &c處於停用狀態，請換一個指定"
+      fail-frequently: "&c你在&e{second} &c秒前已經向玩家&e{player} &c發送過比賽邀請了，請等待對方處理"
+      successfully: "&a成功向玩家&b{player} &a發送比賽邀請，請等待對方處理"
+      receive:
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+        - ""
+        - " &b收到來自&e{player}&b的比賽邀請[clickable]accept::&a&l[✔]::&a點擊接受邀請[clickable] [clickable]decline::&c&l[✘]::&c點擊謝絕邀請[ clickable]"
+        - ""
+        - "&7&m───&f&l&m────────────────────────&7&m───"
+      receive-notify-designated-arena: "&3&l[!]&f對方指定了競技場地圖&e{arena_name}&7({arena_type}&7)"
+    accept:
+      description: "&b接受（來自某個玩家的）比賽邀約"
+      fail-none: "&c你沒有任何待接受的邀約"
+      fail-time-out: "&c失效邀請：玩家&e{player} &c向你發送的邀請因為長時間未被處理而失效了"
+      fail-offline: "&c無效邀請：玩家&e'{player}' &c不在線或不存在"
+      fail-has-not-sent: "&c無效邀請：玩家&e'{player}' &c還未向你發送過邀請"
+      fail-has-no-arenas: "&c伺服器沒有設置任何競技場，無法開始比賽"
+      fail-has-no-available-arenas: "&c伺服器尚未設定最小開賽人數小於3的競技場"
+      fail-has-no-available-arenas-temporarily: "&c目前暫時沒有可用的最小開賽人數小於3的競技場"
+      success-receiver: "&a已接受玩家&b{player} &a的邀請"
+      success-sender: "&a玩家&b{player} &a接受了你的邀請"
+      success-notify-randomly-chosen-arena: "&b&l[!]&3由於沒有指定競技場，系統自動為你們隨機選擇了競技場&f{arena_name}&7(&f{arena_type}&7)"
+      choose-list-heading: "&b目前你有多個待處理的邀請，請選擇要接受的："
+      choose-list-body: "&f&l{index}. &f{player} &7(指定競技場: {arena}) [clickable]accept::&a&l[接受]::&a點擊接受邀請[clickable]"
+      choose-list-ending: "&b共&3&l{number} &b條待處理邀請"
+      decline-none: "&c你沒有任何待拒絕的邀請"
+    decline:
+      description: "&b謝絕（來自某個玩家的）比賽邀請"
+      fail-time-out: "&c失效邀請：玩家&e{player} &c向你發送的邀請因為長時間未被處理而失效了"
+      fail-offline: "&c無效邀請：玩家&e'{player}' &c不在線或不存在"
+      fail-has-not-sent: "&c無效邀請：玩家&e'{player}' &c還未向你發送過邀請"
+      success-receiver: "&a已拒絕玩家&b{player} &a的邀請"
+      success-sender: "&c玩家&6{player} &c謝絕了你的邀請"
+      choose-list-heading: "&b目前你有多個待處理的邀請，請選擇要拒絕的："
+      choose-list-body: "&f&l{index}. &f{player} [clickable]decline::&c&l[拒絕]::&c點擊拒絕邀請[clickable]"
+      choose-list-ending: "&b共&3&l{number} &b條待處理邀請"
+    wait:
+      description: "&b加入某個競技場或其等待隊列"
+    spectate:
+      description: "&b觀看某個競技場的比賽"
+      fail-arena-not-exists: "&c競技場&e'{arena}' &c不存在，無法觀看"
+      fail-arena-disabled: "&c競技場&e{arena} &c處於停用狀態，無法觀看"
+      fail-arena-no-games: "&c競技場&e{arena} &c現在沒有正在進行的比賽，無法觀看"
+    quit:
+      description: "&b退出目前比賽(比賽時使用)"
+      not-in-arena: "&c只有在競技場比賽時才能使用這個指令"
+      successfully: "&b你退出了競技場&e{arena} &b上的比賽"
+    record:
+      description: "&b打開比賽記錄面板"
+    lang:
+      description: "&b切換語言環境"
+      list-heading: "&b語言檔案如下："
+      list-body: "&2&l{index}. &a{file}[clickable]switch::&7(點擊切換)::&f點擊將自己的語言環境切換為：&a{file}[clickable]"
+      list-ending: "&b共通&3&l{number} &b個檔案"
+      no-file-installed: "&c伺服器未裝載任何其他語言檔案"
+      the-file-not-exists: "&c不存在名為&e'{file}' &c的語言檔案"
+      switch-successfully: "&a切換成功！目前語言環境：{language}"
+    join:
+      arena-not-exists: "&c競技場&e'{arena}'&c 不存在，無法加入。請檢查輸入"
+      fail-arena-disabled: "&c競技場&e{arena}&c 處於停用狀態，暫不可加入"
+      arena-in-progress-closed: "&c競技場&e{arena}&c 不允許中途加入！"
+      arena-in-progress-opened-full: "&c競技場&e{arena}&c 人數已滿，請稍後再嘗試加入"
+      game-tentatively: "&a正在嘗試加入競技場：&b{arena}"
+  shop:
+    command:
+      add-description: "&b為某個獎品加上一條兌換後執行的指示"
+      remove-description: "&b為某個獎品移除一條兌換後執行的指令"
+Item:
+  gui:
+    shop:
+      button-previous-page: "&9上一頁"
+      button-next-page: "&9下一頁"
+      reward-information:
+        - ""
+        - "&e&l[兌換所需] &6{point}點積分"
+        - "&e&l[本服已兌] &6{volume}份"
+        - "&e&l[獎品描述] &7{description}"
+        - ""
+      reward-level-limit-tip-yes: "&2&l[&a&l!&2&l]&7你已達到兌換此獎品所需的等級: {level}"
+      reward-redeem-tip-yes: "&b點擊兌換：&b&l{point_now}&3/{point_need}"
+      reward-redeem-tip-no-enough-point: "&c積分不足：&c&l{point_now}&e/{point_need}"
+      reward-redeem-tip-no-enough-level: "&c等級不足：&c&l{level_now}&e/{level_need}"
+    record:
+      show-tip: "&b[左鍵點擊] &f傳送本記錄"
+      print-tip: "&d[右鍵點擊] &f將本記錄列印到手持的紙張上&7(需要消耗{point}積分)"
+    start:
+      arena-information:
+        - ""
+        - "&f狀態: &f{state}"
+        - "&f人數: &a{now_number}&2/{max_number}"
+        - ""
+        - "{button_message}"
+      arena-state:
+        waiting: "&a等待中"
+        in-progress-closed: "&c進行中&7(不可中途加入)"
+        in-progress-opened: "&b進行中&3(允許中途加入)"
+        disabled: "&c停用中"
+      arena-button-message:
+        waiting-start: "&b&l[點擊等待]"
+        waiting-stop: "&3&l[點選取消等待]"
+        in-progress-closed: "&c&l[不可加入]"
+        in-progress-opened: "&a&l[點擊加入]"
+        in-progress-opened-full: "&c&l[人數已滿]"
+        disabled: "&c&l[不可用]"
+GUI:
+  already-the-first-page: "&c已經是第一頁了"
+  already-the-last-page: "&c已經是最後一頁了"
+  type:
+    shop:
+      title: "&9點數兌換商城"
+      empty: "&c積分兌換商城暫未設定任何獎品"
+      redeem-unsuccessfully-insufficient-points: "&c積分不足！你需要&e{point_need} &c才能兌換這個獎品，而你目前只有&e{point_now}"
+      redeem-unsuccessfully-insufficient-level: "&c等級不足！你需要達到&e{level_need} &c級兌換這個獎品，而你目前為&e{level_now} &c級，請繼續努力"
+      redeem-successfully: "&b兌換成功！獎品已發送到你的背包"
+      redeem-successfully-but-drop: "&3兌換成功！&b&n但由於背包空間不足，兌換到的獎品以掉落物的形式在你當前的位置出現，總共{number} 種"
+    record:
+      title: "&9{player}的比賽記錄"
+      empty: "&c暫時沒有任何比賽紀錄"
+      show-frequently: "&c請等待&e{time} &c秒再展示比賽記錄"
+      show-content: "&f{player} &7: [clickable]show::&b[我的比賽記錄]::{content}[clickable]&7(滑鼠移到文字上方查看)"
+      print-insufficient-point: "&c需要&e{point_need} &c點積分才能列印一次比賽記錄，而你現在只有&e{point_now} &c點"
+      print-fail-no-paper-in-hand: "&c請先把紙張拿在手上"
+      print-fail-paper-has-meta: "&c印製的紙張應為普通的紙"
+      print-successfully: "&a列印成功！請查看你的紙張"
+    start:
+      title: "&9競技場列表"
+      empty: "&c伺服器未建立任何競技場"
+      use-while-in-game: "&c你現在正處於競技場&e{arena}&c 的比賽中，無法執行此操作"
+      state:
+        waiting-operation-cooldown: "&7請不要過於頻繁地操作等待功能"
+        in-progress-closed: "&c競技場&e{arena}&c 不允許中途加入"
+        in-progress-opened-full: "&c競技場&e{arena}&c 已經滿人，暫不可加入"
+        in-progress-opened: "&a正在加入競技場：&b{arena}"
+        disabled: "&c競技場&e{arena}&c 處於停用狀態！"
+    item-display:
+      title: "&9物品詳情"
+Ranking:
+  hologram:
+    heading:
+      - "{ranking_name}"
+      - "{ranking_description}"
+    body: "&b&lTOP{rank}.&b{player} &f&l- &3{data}{extra}"
+    ending: "---"
+  type:
+    classic-wins:
+      name: "&b經典模式勝場榜"
+      description: "&7在經典模式中贏下的場次越多排名越高"
+    classic-win-rate:
+      name: "&d經典模式勝率榜"
+      description: "&7在經典模式中的勝率越高排名越前"
+    exp:
+      name: "&a經驗榜"
+      description: "&7經驗總額越多排名越前"
+    total-game-number:
+      name: "&e全模式場數榜"
+      description: "&7即參與經典模式及DT任意附屬插件的任意模式的次數"
+    total-game-time:
+      name: "&6全模式時長榜"
+      description: "&7即參與經典模式及DT任意附屬插件的任意模式的時長，按秒數記"
+    classic-game-number:
+      name: "&e經典模式場數榜"
+      description: "&7即參與經典模式的次數"
+    classic-game-time:
+      name: "&6經典模式時長榜"
+      description: "&7即參與經典模式的時長，按秒數記"

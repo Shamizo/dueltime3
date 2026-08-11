@@ -1,0 +1,13 @@
+name: DuelTime
+version: '${project.version}'
+main: cn.valorin.dueltime.DuelTimePlugin
+softdepend: [ HolographicDisplays, HolographicDisplay, PlaceholderAPI, CMI, DecentHolograms , Multiverse-Core ]
+api-version: "1.21"
+folia-supported: true
+load: POSTWORLD
+loadbefore: [ PlaceholderAPI ]
+commands:
+  dueltime:
+    description: Help of DuelTime
+    usage: /<command>
+    aliases: [ dt ]
